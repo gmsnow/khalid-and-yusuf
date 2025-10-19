@@ -275,14 +275,14 @@ body {
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-  AOS.init({
-    duration: 1600,      // 2s fade duration
-    easing: 'ease-in-out', // smooth fade
-    once: true,           // animate only once
-    offset: 150           // trigger when element is 150px inside viewport
-  });
+AOS.init({
+  duration: 1600,
+  easing: 'ease-in-out',
+  once: true,
+  mirror: false,
+  offset: 150
 });
+
 // Modals
 const mapModal = document.getElementById("mapModal");
 const locationImg = document.getElementById("location");
