@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>دعوة زفاف</title>
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="شاركونا فرحنا">
+<meta property="og:description" content="انقر لفتح الدعوه!">
+<meta property="og:image" content="https://i.postimg.cc/zfttfdbs/wedding.png">
+<meta property="og:url" content="">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- AOS -->
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Amiri&family=Parisienne&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+<!-- Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+@font-face {
+  font-family: 'TaseesSaudi';
+  src: url('./assets/font/Tasees-Saudi.ttf') format('truetype');
+}
+body {
+  background: linear-gradient(-45deg, #9eae47, #939090, #817764, #ffffff);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  font-family: 'TaseesSaudi', sans-serif;
+  padding: 20px 0;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+@keyframes gradient { 0% {background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%} }
+
+.invitation-wrapper { position: relative; max-width: 900px; margin: auto; padding: 1.5rem; }
+
+.card {
+  position: relative;
+  background: rgba(0,0,0,0.55);
+  border-radius: 25px;
+  min-height: 800px;
+  padding: 2rem;
+  opacity: 0.95;
+  margin-top: -30px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+  border: 4px solid transparent;
+  background-clip: padding-box, border-box;
+  animation: cardGlow 6s ease-in-out infinite;
+  color: #c49a6c;
+  transition: transform 0.4s, box-shadow 0.4s;
+}
+.card:hover { transform: translateY(-8px) scale(1.02); box-shadow: 0 25px 50px rgba(0,0,0,0.15); }
+@keyframes cardGlow {
+  0%,100% { border-image: linear-gradient(45deg,#ffd7b5,#c49a6c) 1; }
+  50% { border-image: linear-gradient(45deg,#c49a6c,#ffd7b5) 1; }
+}
+
+/* Names */
+.names {
+    border: #c49a6c 2px solid;
+     font-size: 3.5rem; color: #fff; text-shadow: 0 0 8px #b4aba2,0 0 15px #aeaeae,0 0 30px #76726f; animation: nameGlow 3s ease-in-out infinite alternate; }
+@keyframes nameGlow { 0% { text-shadow:0 0 5px #8a5343,0 0 15px #e15f5f,0 0 25px #8d6666; } 100% { text-shadow:0 0 10px #503a34,0 0 25px #ffd7b5,0 0 35px #ffb45c; } }
+.separator { font-size: 2rem; margin: 0 10px; display: inline-block; animation: nameGlow 3s ease-in-out infinite alternate; }
+
+/* Couple photo */
+.couple-photo {
+  width: 80%;
+  max-width: 400px;
+  aspect-ratio: 1/1;
+  object-fit: scale-down;   /* تصغير الصورة لتناسب الدائرة */
+  object-position: center;
+  border-radius: 50%;
+  border: 4px solid #c49a6c;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  margin: 1rem auto;
+  object-position: 70% 90%;
+  display: block;
+  animation: borderGlowPulse 4s infinite alternate, sway 6s ease-in-out infinite;
+}
+
+@keyframes borderGlowPulse {
+  0% {
+    box-shadow: 0 0 10px #c49a6c, 0 0 20px #c49a6c;
+    border-color: #c49a6c;
+    transform: scale(1);
+  }
+  25% {
+    box-shadow: 0 0 20px #ffd9a0, 0 0 40px #ffd9a0;
+    border-color: #ffd9a0;
+    transform: scale(1.05);
+  }
+  50% {
+    box-shadow: 0 0 30px #ffebc5, 0 0 60px #ffebc5;
+    border-color: #ffebc5;
+    transform: scale(1.1);
+  }
+  75% {
+    box-shadow: 0 0 20px #ffd9a0, 0 0 40px #ffd9a0;
+    border-color: #ffd9a0;
+    transform: scale(1.05);
+  }
+  100% {
+    box-shadow: 0 0 10px #c49a6c, 0 0 20px #c49a6c;
+    border-color: #c49a6c;
+    transform: scale(1);
+  }
+}
+
+/* Subtle Sway Animation */
+@keyframes sway {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(1deg); }
+  50% { transform: rotate(0deg); }
+  75% { transform: rotate(-1deg); }
+  100% { transform: rotate(0deg); }
+}
+
+@media (max-width: 768px) {
+  .couple-photo {
+    max-width: 250px;
+  }
+}
+/* Responsive */
+@media (max-width:768px){
+  .names { font-size: 2.5rem; }
+  .separator { font-size: 1.5rem; }
+  .card { min-height: auto; padding: 2rem 1rem; }
+}
+#location1, #location,#calendar {
+  cursor: pointer;
+  transition: transform 0.3s;
+  width: 50px;
+}
+
+#location1:hover, #location:hover,#calendar:hover {
+  transform: scale(1.1);
+}
+/* Music Button */
+.music-control-btn {
+  position: fixed; bottom:20px; left:20px; z-index:999;
+  width: 60px; height: 60px; border-radius:50%; background:white;
+  display:flex; align-items:center; justify-content:center; border:none; cursor:pointer;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: transform 0.3s, background 0.3s;
+}
+.music-control-btn:hover { background:#f8f0e3; transform:scale(1.1);}
+.music-control-btn i { font-size:24px; color:#ae5f47; }
+
+/* Timer */
+#customTimer { font-family:'Parisienne', cursive; color:#c49a6c; display:flex; justify-content:center; gap:10px; flex-wrap:wrap; }
+.timer-box { background: rgba(0,0,0,0.85); border-radius:15px; padding:10px 15px; min-width:55px; text-align:center; box-shadow:0 0 15px rgba(255,215,181,0.6),0 0 25px rgba(255,192,128,0.4);}
+.timer-number { font-size:1.8rem; } .timer-label { font-size:0.85rem; }
+
+/* Modals */
+.modal { display:none; position:fixed; z-index:1000; left:0; top:0; width:100%; height:100%; overflow:auto; background-color:rgba(0,0,0,0.6); backdrop-filter:blur(3px);}
+.modal-content { background:#fff; margin:5% auto; padding:20px; border-radius:15px; width:90%; max-width:700px; text-align:center; position:relative; }
+.modal .close { position:absolute; top:10px; right:20px; font-size:28px; font-weight:bold; cursor:pointer; color:#333; }
+.modal .close:hover { color:#ffb400; }
+
+/* Accents */
+.accents { user-select:none; pointer-events:none; position:absolute; left:0; right:0; top:4%; }
+.accents .light { position:absolute; left:0; right:0; top:264px; margin:auto; width:220px; height:130px; z-index:-2; animation: rotate360 22s linear infinite; background: radial-gradient(circle, rgba(255,215,181,0.2) 1px, transparent 1px); }
+.accents .light.sm { width:80px; height:80px; top:140px; animation: rotate360 18s linear -10s infinite; }
+.accents .top-light { position:absolute; left:0; right:0; top:-40px; margin:auto; width:250px; height:6px; border-radius:10px; background:#fffef9; box-shadow:0 0px 1px 1px #ffc78e,0 1px 2px 1px #ff942977,0 2px 6px 1px #e98b2d77,0 4px 12px 0px #ff9e3d99,0 12px 20px 12px #ff800044;}
+@keyframes rotate360 {0%{transform:rotate(0deg);}100%{transform:rotate(360deg);} }
+
+.not-loaded * { animation-play-state: paused !important; }
+.whatsapp-bottom {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: white;
+  font-size: 25px;
+  width: 60px;
+  height: 60px;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+</style>
+</head>
+<body class="not-loaded">
+
+<div class="invitation-wrapper" data-aos="fade-down">
+  <div class="card text-center" data-aos="zoom-in">
+    <div class="card-header bg-transparent border-0">
+      <h1 class="firstH1" data-aos="fade-down">دعوة زفاف</h1>
+    </div>
+    <div class="card-body">
+      <h1 data-aos="fade-left">افراح آل الرضمي</h1>
+      <h1 data-aos="fade-left">يتشرف الوالد/ حمود حسن الرضمي <br>بدعوتكم لحضور حفل زفاف نجليه</h1>
+    </div>
+
+    <div class="names my-3" data-aos="zoom-in">خالد <span class="separator">و</span> يوسف</div>
+    <img class="couple-photo" data-aos="fade-up" src="./assets/img/wedding.png" alt="خالد و يوسف" loading="lazy">
+
+    <div class="row justify-content-center text-center my-4" data-aos="fade-up" data-aos-delay="700">
+      <div class="col-12 col-md-4 mb-3" data-aos="fade-up">
+        <img id="location1" src="./assets/img/icons8-celebration-100.png" alt="" >
+        <h2 data-aos="fade-left" data-aos-delay="100">الزفه</h2>
+        <h2 data-aos="fade-left" data-aos-delay="200">أمام منزلنا</h2>
+        <h2 data-aos="fade-left" data-aos-delay="300">شارع الزراعة - جوار مخبز تهامه</h2>
+      </div>
+      <div class="col-12 col-md-4 mb-3" data-aos="fade-up">
+        <img id="location" src="./assets/img/icons8-location-96.png" alt="">
+        <h2 data-aos="fade-up" data-aos-delay="100">المقيل </h2>
+        <h2 data-aos="fade-up" data-aos-delay="200">صاله التاج الذهبي</h2>
+        <h2 data-aos="fade-up" data-aos-delay="300"> شارع الزراعة - أمام بهارات الهتار</h2>
+      </div>
+      <div class="col-12 col-md-4 mb-3" data-aos="fade-up">
+        <img id="calendar" src="./assets/img/icons8-calender-85.png" alt="">
+        <h2 data-aos="fade-right" data-aos-delay="100">يوم الاربعاء</h2>
+        <h2 data-aos="fade-right" data-aos-delay="200">2025/10/22</h2>
+      </div>
+    </div>
+    <div class="footer" data-aos="fade-up">🌹 أفراحنا تكتمل بحضوركم</div>
+  </div>
+</div>
+
+<audio id="bg-music" loop>
+  <source src="./assets/emotional-piano-409864.mp3" type="audio/mpeg">
+  متصفحك لا يدعم تشغيل الصوت
+</audio>
+
+<button id="music-btn" class="music-control-btn">
+  <i class="fa-solid fa-pause"></i>
+</button>
+
+<div id="mapModal" class="modal">
+  <div class="modal-content text-center">
+    <span class="close">&times;</span>
+    <h2>موقع القاعة</h2>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3847.329999401464!2d44.189942674586405!3d15.35860415807082!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1603dba2e95d7773%3A0xf0f72a2ce251d01b!2z2LXYp9mE2Kkg2KfZhNiq2KfYrCDYp9mE2LDZh9io2Yo!5e0!3m2!1sen!2s!4v1760844397754!5m2!1sen!2s" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+  </div>
+</div>
+<div id="mapModal1" class="modal">
+  <div class="modal-content text-center">
+    <span class="close">&times;</span>
+    <h2>موقع الزفه</h2>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3847.3497057339846!2d44.189196374586366!3d15.357535658098236!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1603dba26494838b%3A0x2f0474f7b2982517!2sTehamah%20Bakery!5e0!3m2!1sen!2s!4v1760844697936!5m2!1sen!2s" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+  </div>
+</div>
+
+<div class="accents">
+  <div class="light"></div>
+  <div class="light sm"></div>
+  <div class="top-light"></div>
+</div>
+
+<div id="timerModal" class="modal">
+  <div class="modal-content text-center">
+    <span class="close">&times;</span>
+    <h2 class="mb-3">الوقت المتبقي 🕰️</h2>
+    <div id="customTimer" class="d-flex justify-content-center gap-2 my-3" style="flex-direction: row-reverse;">
+      <div class="timer-box text-center"><div id="days" class="timer-number">00</div><div class="timer-label">أيام</div></div>
+      <div class="timer-box text-center"><div id="hours" class="timer-number">00</div><div class="timer-label">ساعات</div></div>
+      <div class="timer-box text-center"><div id="minutes" class="timer-number">00</div><div class="timer-label">دقائق</div></div>
+      <div class="timer-box text-center"><div id="seconds" class="timer-number">00</div><div class="timer-label">ثواني</div></div>
+    </div>
+    <p class="note">نحن في انتظاركم بفارغ الصبر!</p>
+  </div>
+</div>
+<footer style="text-align: right; padding: 20px;">
+    <a href="https://wa.me/967777296855?text=مرحبا%20اريد%20الاستفسار%20عن%20دعوة%20الزفاف"
+       target="_blank"
+       class="whatsapp-bottom">
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
+  </footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  AOS.init({
+    duration: 1600,      // 2s fade duration
+    easing: 'ease-in-out', // smooth fade
+    once: true,           // animate only once
+    offset: 150           // trigger when element is 150px inside viewport
+  });
+});
+// Modals
+const mapModal = document.getElementById("mapModal");
+const locationImg = document.getElementById("location");
+const mapClose = mapModal.querySelector(".close");
+locationImg.addEventListener("click",()=>mapModal.style.display="block");
+mapClose.addEventListener("click",()=>mapModal.style.display="none");
+window.addEventListener("click", e => { if(e.target===mapModal) mapModal.style.display="none"; });
+
+const timerModal = document.getElementById("timerModal");
+const calendarImg = document.getElementById("calendar");
+const timerClose = timerModal.querySelector(".close");
+calendarImg.addEventListener("click",()=>timerModal.style.display="block");
+timerClose.addEventListener("click",()=>timerModal.style.display="none");
+window.addEventListener("click", e => { if(e.target===timerModal) timerModal.style.display="none"; });
+window.addEventListener("keydown", e => { if(e.key==="Escape"){ mapModal.style.display="none"; timerModal.style.display="none"; }});
+
+// Countdown
+const countdownDate = new Date("2025-10-22 21:00:00").getTime();
+function updateCustomTimer() {
+  const now = new Date().getTime();
+  const distance = countdownDate - now;
+  if(distance<0){ document.getElementById("customTimer").innerHTML="<p style='color:#ff6b6b;'>الحفل بدأ 🎉</p>"; return;}
+  const days=Math.floor(distance/(1000*60*60*24));
+  const hours=Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+  const minutes=Math.floor((distance%(1000*60*60))/(1000*60));
+  const seconds=Math.floor((distance%(1000*60))/1000);
+  document.getElementById("days").textContent=String(days).padStart(2,'0');
+  document.getElementById("hours").textContent=String(hours).padStart(2,'0');
+  document.getElementById("minutes").textContent=String(minutes).padStart(2,'0');
+  document.getElementById("seconds").textContent=String(seconds).padStart(2,'0');
+  requestAnimationFrame(updateCustomTimer);
+}
+updateCustomTimer();
+
+// Music Control
+const music = document.getElementById('bg-music');
+const musicBtn = document.getElementById('music-btn');
+const icon = musicBtn.querySelector('i');
+
+document.addEventListener('click', ()=>{ if(music.paused) music.play(); }, {once:true});
+
+musicBtn.addEventListener('click', ()=>{
+  if(music.paused){ music.play(); icon.classList.remove('fa-play'); icon.classList.add('fa-pause'); }
+  else { music.pause(); icon.classList.remove('fa-pause'); icon.classList.add('fa-play'); }
+});
+
+document.addEventListener('visibilitychange', ()=>{
+  if(document.hidden){ music.pause(); icon.classList.remove('fa-pause'); icon.classList.add('fa-play'); }
+  else { music.play(); icon.classList.remove('fa-play'); icon.classList.add('fa-pause'); }
+});
+</script>
+<script>
+    // Get elements
+    const location1 = document.getElementById('location1');
+    const modal1 = document.getElementById('mapModal1');
+    const closeBtns = document.querySelectorAll('.modal .close');
+  
+    // ✅ Open modal1 when clicking on location1
+    location1.addEventListener('click', () => {
+      modal1.style.display = 'block';
+    });
+  
+    // ✅ Close modals when clicking (x)
+    closeBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        modal1.style.display = 'none';
+      });
+    });
+  
+    // ✅ Close modal when clicking outside content
+    window.addEventListener('click', (e) => {
+      if (e.target === modal1) modal1.style.display = 'none';
+      if (e.target === modal2) modal2.style.display = 'none';
+    });
+  </script>
+</body>
+</html>
