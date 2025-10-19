@@ -83,9 +83,15 @@ body {
   margin: 1rem auto;
   object-position: 70% 90%;
   display: block;
-  animation: borderGlowPulse 4s infinite alternate, sway 6s ease-in-out infinite;
+  animation: borderGlowPulse 4s infinite alternate, floatLeftRight 6s ease-in-out infinite;
 }
-
+@keyframes floatLeftRight {
+  0% { transform: translateX(0px) rotate(0deg); }
+  25% { transform: translateX(15px) rotate(1deg); }
+  50% { transform: translateX(0px) rotate(0deg); }
+  75% { transform: translateX(-15px) rotate(-1deg); }
+  100% { transform: translateX(0px) rotate(0deg); }
+}
 @keyframes borderGlowPulse {
   0% {
     box-shadow: 0 0 10px #c49a6c, 0 0 20px #c49a6c;
@@ -114,14 +120,6 @@ body {
   }
 }
 
-/* Subtle Sway Animation */
-@keyframes sway {
-  0% { transform: rotate(0deg); }
-  25% { transform: rotate(1deg); }
-  50% { transform: rotate(0deg); }
-  75% { transform: rotate(-1deg); }
-  100% { transform: rotate(0deg); }
-}
 
 @media (max-width: 768px) {
   .couple-photo {
@@ -171,7 +169,6 @@ body {
 .accents .top-light { position:absolute; left:0; right:0; top:-40px; margin:auto; width:250px; height:6px; border-radius:10px; background:#fffef9; box-shadow:0 0px 1px 1px #ffc78e,0 1px 2px 1px #ff942977,0 2px 6px 1px #e98b2d77,0 4px 12px 0px #ff9e3d99,0 12px 20px 12px #ff800044;}
 @keyframes rotate360 {0%{transform:rotate(0deg);}100%{transform:rotate(360deg);} }
 
-.not-loaded * { animation-play-state: paused !important; }
 .whatsapp-bottom {
   display: inline-flex;
   align-items: center;
